@@ -1,8 +1,5 @@
-//
-//  CitySelectionViewController.swift
-//  weather
-//
-//  Created by Sam Woolf on 25/02/2021.
-//
+import UIKit
 
-import Foundation
+final class CitySelectionViewController: UIViewController {
+	
+}

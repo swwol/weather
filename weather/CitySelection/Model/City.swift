@@ -1,8 +1,9 @@
-//
-//  City.swift
-//  weather
-//
-//  Created by Sam Woolf on 25/02/2021.
-//
-
 import Foundation
+
+enum City: CaseIterable {
+	case london
+	case tokyo
+	case newYork
+	case berlin
+	case paris
+}

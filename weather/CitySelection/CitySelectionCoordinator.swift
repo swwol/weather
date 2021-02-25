@@ -6,8 +6,7 @@ protocol CitySelectionCoordinatorType {
 
 final class CitySelectionCoordinator: CitySelectionCoordinatorType {
 	func start(on context: UINavigationController) {
-		let viewController = UIViewController()
-		viewController.view.backgroundColor = .red
+		let viewController: CitySelectionViewController = .fromStoryboard()
 		context.setViewControllers([viewController], animated: false)
 	}
 }
