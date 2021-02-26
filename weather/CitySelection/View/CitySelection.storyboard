@@ -23,13 +23,49 @@
                                 <color key="separatorColor" name="divider"/>
                                 <inset key="separatorInset" minX="16" minY="0.0" maxX="24" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CVi-De-EiV">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityTableViewCell" id="CVi-De-EiV" customClass="CityTableViewCell" customModule="weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CVi-De-EiV" id="0TY-py-Q6T">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZh-2q-9c5">
+                                                    <rect key="frame" x="186" y="29" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6y-Lk-iEt">
+                                                    <rect key="frame" x="332" y="29" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O0v-Gf-AB3">
+                                                    <rect key="frame" x="20" y="19.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Nn4-TY-JZ6"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="SYH-iH-kpd"/>
+                                                        <constraint firstAttribute="height" constant="40" id="pTr-hI-wkq"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="r6y-Lk-iEt" secondAttribute="bottom" constant="18" id="9OH-fT-aVE"/>
+                                                <constraint firstItem="EZh-2q-9c5" firstAttribute="centerY" secondItem="0TY-py-Q6T" secondAttribute="centerY" id="FhH-HR-91U"/>
+                                                <constraint firstItem="r6y-Lk-iEt" firstAttribute="top" secondItem="0TY-py-Q6T" secondAttribute="topMargin" constant="18" id="KTg-SW-tRl"/>
+                                                <constraint firstItem="O0v-Gf-AB3" firstAttribute="centerY" secondItem="0TY-py-Q6T" secondAttribute="centerY" id="PrG-1H-3gK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="r6y-Lk-iEt" secondAttribute="trailing" constant="20" id="qdB-e7-vOi"/>
+                                                <constraint firstItem="EZh-2q-9c5" firstAttribute="centerX" secondItem="0TY-py-Q6T" secondAttribute="centerX" id="rWd-1i-GoL"/>
+                                                <constraint firstItem="O0v-Gf-AB3" firstAttribute="leading" secondItem="0TY-py-Q6T" secondAttribute="leading" constant="20" id="tbt-bw-jki"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="EZh-2q-9c5" id="njX-bA-gVd"/>
+                                            <outlet property="icon" destination="O0v-Gf-AB3" id="ur9-W1-NXY"/>
+                                            <outlet property="tempLabel" destination="r6y-Lk-iEt" id="XWg-8A-eoW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -45,6 +81,9 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="cQg-YF-1et" id="H6f-qD-tpj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ay6-fg-Nvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
