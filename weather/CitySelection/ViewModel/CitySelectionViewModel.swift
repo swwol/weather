@@ -27,30 +27,3 @@ final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionVie
 	func viewDidAppear() {
 	}
 }
-
-
-final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
-	}
-
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		City.allCases.count
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier) as? CityTableViewCell else {
-			fatalError("unable to dequeue CityTableViewCell")
-		}
-		cell.cityLabel.text = "bladf"
-		return cell
-	}
-}
-
-
-final class CityTableViewCell: UITableViewCell {
-	@IBOutlet private weak var icon: UIImageView!
-	@IBOutlet weak var cityLabel: UILabel!
-	@IBOutlet private weak var tempLabel: UILabel!
-}

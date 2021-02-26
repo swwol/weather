@@ -26,6 +26,11 @@
 		0E47EDC025E980D400B46237 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBF25E980CF00B46237 /* Lato-Bold.ttf */; };
 		0E47EDC425E980D800B46237 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBD25E980B200B46237 /* Lato-Regular.ttf */; };
 		0E47EDC825E980DB00B46237 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */; };
+		0E47EDCE25E9A32800B46237 /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDCD25E9A32800B46237 /* CityDataSource.swift */; };
+		0E47EDD325E9A34F00B46237 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDD225E9A34F00B46237 /* CityTableViewCell.swift */; };
+		0E47EDD825E9B28300B46237 /* CityTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDD725E9B28300B46237 /* CityTableViewCellViewModel.swift */; };
+		0E47EDDE25E9B41100B46237 /* StringLocalizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDDD25E9B41100B46237 /* StringLocalizing.swift */; };
+		0E47EDE525E9B61000B46237 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDE425E9B61000B46237 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +54,7 @@
 		0E2661BF25E8521F00F70B3F /* weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2661C225E8521F00F70B3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E2661C425E8521F00F70B3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0E2661C925E8521F00F70B3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E2661CB25E8522000F70B3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0E2661CE25E8522000F70B3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E2661D025E8522000F70B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E2661D525E8522100F70B3F /* weatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E2661D925E8522100F70B3F /* weatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherTests.swift; sourceTree = "<group>"; };
@@ -71,6 +74,13 @@
 		0E47EDBD25E980B200B46237 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		0E47EDBF25E980CF00B46237 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		0E47EDCD25E9A32800B46237 /* CityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
+		0E47EDD225E9A34F00B46237 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		0E47EDD725E9B28300B46237 /* CityTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		0E47EDDD25E9B41100B46237 /* StringLocalizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLocalizing.swift; sourceTree = "<group>"; };
+		0E47EDE225E9B5CD00B46237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0E47EDE325E9B5CD00B46237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0E47EDE425E9B61000B46237 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +131,7 @@
 		0E2661C125E8521F00F70B3F /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				0E47EDDC25E9B40100B46237 /* Util */,
 				0E47EDBC25E9809B00B46237 /* Fonts */,
 				0E26621B25E868F800F70B3F /* Extensions */,
 				0E2661F525E8614900F70B3F /* Coordinator */,
@@ -165,6 +176,7 @@
 		0E26620325E863B600F70B3F /* CitySelection */ = {
 			isa = PBXGroup;
 			children = (
+				0E47EDCC25E9A31500B46237 /* Datasource */,
 				0E26622925E86BFE00F70B3F /* ViewModel */,
 				0E26621525E867F700F70B3F /* View */,
 				0E26620C25E8679500F70B3F /* Model */,
@@ -186,6 +198,7 @@
 			children = (
 				0E26621625E8681000F70B3F /* CitySelectionViewController.swift */,
 				0E26622425E86A1600F70B3F /* CitySelection.storyboard */,
+				0E47EDD225E9A34F00B46237 /* CityTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				0E26622A25E86C1D00F70B3F /* CitySelectionViewModel.swift */,
+				0E47EDD725E9B28300B46237 /* CityTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -215,6 +229,23 @@
 				0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0E47EDCC25E9A31500B46237 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				0E47EDCD25E9A32800B46237 /* CityDataSource.swift */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
+		0E47EDDC25E9B40100B46237 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0E47EDE425E9B61000B46237 /* Localizable.strings */,
+				0E47EDDD25E9B41100B46237 /* StringLocalizing.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +332,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 0E2661B625E8521F00F70B3F;
 			productRefGroup = 0E2661C025E8521F00F70B3F /* Products */;
@@ -325,6 +355,7 @@
 				0E47EDC425E980D800B46237 /* Lato-Regular.ttf in Resources */,
 				0E47EDC025E980D400B46237 /* Lato-Bold.ttf in Resources */,
 				0E2661CC25E8522000F70B3F /* Assets.xcassets in Resources */,
+				0E47EDE525E9B61000B46237 /* Localizable.strings in Resources */,
 				0E26622525E86A1600F70B3F /* CitySelection.storyboard in Resources */,
 				0E2661CA25E8521F00F70B3F /* Main.storyboard in Resources */,
 			);
@@ -353,13 +384,17 @@
 			files = (
 				0E26622B25E86C1D00F70B3F /* CitySelectionViewModel.swift in Sources */,
 				0E26623025E8745000F70B3F /* UITableViewCell+Extension.swift in Sources */,
+				0E47EDDE25E9B41100B46237 /* StringLocalizing.swift in Sources */,
 				0E26621D25E8691300F70B3F /* UIViewController+Extension.swift in Sources */,
 				0E26620525E863D200F70B3F /* CitySelectionCoordinator.swift in Sources */,
+				0E47EDCE25E9A32800B46237 /* CityDataSource.swift in Sources */,
 				0E2661C325E8521F00F70B3F /* AppDelegate.swift in Sources */,
+				0E47EDD325E9A34F00B46237 /* CityTableViewCell.swift in Sources */,
 				0E26620E25E867A100F70B3F /* City.swift in Sources */,
 				0E2661FF25E8624C00F70B3F /* AppCoordinator.swift in Sources */,
 				0E2661C525E8521F00F70B3F /* SceneDelegate.swift in Sources */,
 				0E2661F725E8615D00F70B3F /* CoordinatorFactory.swift in Sources */,
+				0E47EDD825E9B28300B46237 /* CityTableViewCellViewModel.swift in Sources */,
 				0E26621725E8681000F70B3F /* CitySelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,7 +434,7 @@
 		0E2661C825E8521F00F70B3F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0E2661C925E8521F00F70B3F /* Base */,
+				0E47EDE325E9B5CD00B46237 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -407,7 +442,7 @@
 		0E2661CD25E8522000F70B3F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0E2661CE25E8522000F70B3F /* Base */,
+				0E47EDE225E9B5CD00B46237 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -10,6 +10,8 @@ final class CitySelectionViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		tableView.backgroundColor = .clear
+		view.backgroundColor = .red
 		bind(viewModel.outputs)
 	}
 
