@@ -23,6 +23,9 @@
 		0E26622525E86A1600F70B3F /* CitySelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E26622425E86A1600F70B3F /* CitySelection.storyboard */; };
 		0E26622B25E86C1D00F70B3F /* CitySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26622A25E86C1D00F70B3F /* CitySelectionViewModel.swift */; };
 		0E26623025E8745000F70B3F /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26622F25E8745000F70B3F /* UITableViewCell+Extension.swift */; };
+		0E47EDC025E980D400B46237 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBF25E980CF00B46237 /* Lato-Bold.ttf */; };
+		0E47EDC425E980D800B46237 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBD25E980B200B46237 /* Lato-Regular.ttf */; };
+		0E47EDC825E980DB00B46237 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		0E26622425E86A1600F70B3F /* CitySelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CitySelection.storyboard; sourceTree = "<group>"; };
 		0E26622A25E86C1D00F70B3F /* CitySelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewModel.swift; sourceTree = "<group>"; };
 		0E26622F25E8745000F70B3F /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		0E47EDBD25E980B200B46237 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		0E47EDBF25E980CF00B46237 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		0E2661C125E8521F00F70B3F /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				0E47EDBC25E9809B00B46237 /* Fonts */,
 				0E26621B25E868F800F70B3F /* Extensions */,
 				0E2661F525E8614900F70B3F /* Coordinator */,
 				0E26620325E863B600F70B3F /* CitySelection */,
@@ -198,6 +205,16 @@
 				0E26622A25E86C1D00F70B3F /* CitySelectionViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0E47EDBC25E9809B00B46237 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0E47EDBF25E980CF00B46237 /* Lato-Bold.ttf */,
+				0E47EDBD25E980B200B46237 /* Lato-Regular.ttf */,
+				0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +320,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E47EDC825E980DB00B46237 /* Lato-Semibold.ttf in Resources */,
 				0E2661CF25E8522000F70B3F /* LaunchScreen.storyboard in Resources */,
+				0E47EDC425E980D800B46237 /* Lato-Regular.ttf in Resources */,
+				0E47EDC025E980D400B46237 /* Lato-Bold.ttf in Resources */,
 				0E2661CC25E8522000F70B3F /* Assets.xcassets in Resources */,
 				0E26622525E86A1600F70B3F /* CitySelection.storyboard in Resources */,
 				0E2661CA25E8521F00F70B3F /* Main.storyboard in Resources */,
