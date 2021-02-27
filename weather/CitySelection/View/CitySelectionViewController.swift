@@ -11,7 +11,7 @@ final class CitySelectionViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.backgroundColor = .clear
-		view.backgroundColor = .red
+		(view as? GradientView)?.setGradient(colors: [WeatherColor.mainGradDark.cgColor, WeatherColor.mainGradLight.cgColor])
 		bind(viewModel.outputs)
 	}
 
@@ -31,3 +31,4 @@ final class CitySelectionViewController: UIViewController {
 			.store(in: &cancellables)
 	}
 }
+

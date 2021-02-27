@@ -31,6 +31,9 @@
 		0E47EDD825E9B28300B46237 /* CityTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDD725E9B28300B46237 /* CityTableViewCellViewModel.swift */; };
 		0E47EDDE25E9B41100B46237 /* StringLocalizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDDD25E9B41100B46237 /* StringLocalizing.swift */; };
 		0E47EDE525E9B61000B46237 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDE425E9B61000B46237 /* Localizable.strings */; };
+		0E47EDF125E9C8FF00B46237 /* WeatherColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDF025E9C8FF00B46237 /* WeatherColor.swift */; };
+		0E47EDF925E9C93C00B46237 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDF825E9C93C00B46237 /* GradientView.swift */; };
+		0E47EDFE25E9CD7500B46237 /* BlankNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDFD25E9CD7500B46237 /* BlankNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		0E47EDE225E9B5CD00B46237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E47EDE325E9B5CD00B46237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E47EDE425E9B61000B46237 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		0E47EDF025E9C8FF00B46237 /* WeatherColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherColor.swift; sourceTree = "<group>"; };
+		0E47EDF825E9C93C00B46237 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0E47EDFD25E9CD7500B46237 /* BlankNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,12 +137,14 @@
 		0E2661C125E8521F00F70B3F /* weather */ = {
 			isa = PBXGroup;
 			children = (
-				0E47EDDC25E9B40100B46237 /* Util */,
+				0E47EDEF25E9C8EC00B46237 /* Color */,
+				0E47EDDC25E9B40100B46237 /* Localizing */,
 				0E47EDBC25E9809B00B46237 /* Fonts */,
 				0E26621B25E868F800F70B3F /* Extensions */,
 				0E2661F525E8614900F70B3F /* Coordinator */,
 				0E26620325E863B600F70B3F /* CitySelection */,
 				0E2661C225E8521F00F70B3F /* AppDelegate.swift */,
+				0E47EDFD25E9CD7500B46237 /* BlankNavigationBar.swift */,
 				0E2661C425E8521F00F70B3F /* SceneDelegate.swift */,
 				0E2661C825E8521F00F70B3F /* Main.storyboard */,
 				0E2661CB25E8522000F70B3F /* Assets.xcassets */,
@@ -239,13 +247,22 @@
 			path = Datasource;
 			sourceTree = "<group>";
 		};
-		0E47EDDC25E9B40100B46237 /* Util */ = {
+		0E47EDDC25E9B40100B46237 /* Localizing */ = {
 			isa = PBXGroup;
 			children = (
 				0E47EDE425E9B61000B46237 /* Localizable.strings */,
 				0E47EDDD25E9B41100B46237 /* StringLocalizing.swift */,
 			);
-			path = Util;
+			path = Localizing;
+			sourceTree = "<group>";
+		};
+		0E47EDEF25E9C8EC00B46237 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				0E47EDF025E9C8FF00B46237 /* WeatherColor.swift */,
+				0E47EDF825E9C93C00B46237 /* GradientView.swift */,
+			);
+			path = Color;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,13 +405,16 @@
 				0E26621D25E8691300F70B3F /* UIViewController+Extension.swift in Sources */,
 				0E26620525E863D200F70B3F /* CitySelectionCoordinator.swift in Sources */,
 				0E47EDCE25E9A32800B46237 /* CityDataSource.swift in Sources */,
+				0E47EDF925E9C93C00B46237 /* GradientView.swift in Sources */,
 				0E2661C325E8521F00F70B3F /* AppDelegate.swift in Sources */,
 				0E47EDD325E9A34F00B46237 /* CityTableViewCell.swift in Sources */,
 				0E26620E25E867A100F70B3F /* City.swift in Sources */,
+				0E47EDFE25E9CD7500B46237 /* BlankNavigationBar.swift in Sources */,
 				0E2661FF25E8624C00F70B3F /* AppCoordinator.swift in Sources */,
 				0E2661C525E8521F00F70B3F /* SceneDelegate.swift in Sources */,
 				0E2661F725E8615D00F70B3F /* CoordinatorFactory.swift in Sources */,
 				0E47EDD825E9B28300B46237 /* CityTableViewCellViewModel.swift in Sources */,
+				0E47EDF125E9C8FF00B46237 /* WeatherColor.swift in Sources */,
 				0E26621725E8681000F70B3F /* CitySelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
