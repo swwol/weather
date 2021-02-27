@@ -39,6 +39,20 @@ struct WeatherResponse: Decodable, Equatable {
 			 return "cloud.moon"
 		 }
 	 }
+		var gradient: Gradient {
+			switch self {
+			case .thunder:
+				return .thunder
+			case .drizzle, .rain:
+				return .rain
+			case .snow:
+				return .snow
+			case .clearDay, .clearNight:
+				return .sunny
+			default:
+				return .cloud
+			}
+		}
  }
 
 	struct Coord: Decodable, Equatable {

@@ -48,9 +48,21 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 		self.repository = repository
 		self.cityName = Just(localizer.localize(city.localizedKey))
 			.eraseToAnyPublisher()
-		gradient = Just(.sunny).eraseToAnyPublisher()
 
-		self.temp = statePublisher.map { state in
+		gradient = statePublisher.map { state in
+			switch state {
+			case .loading, .failure:
+				return .cloud
+			case let .complete(response):
+				guard let weather = response.weather.first else {
+					return .cloud
+				}
+				return weather.icon.gradient
+			}
+		}
+		.eraseToAnyPublisher()
+
+		temp = statePublisher.map { state in
 			switch state {
 			case .loading, .failure:
 				return "-"
@@ -60,7 +72,7 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 		}
 		.eraseToAnyPublisher()
 
-		self.icon = statePublisher.map { state in
+		icon = statePublisher.map { state in
 			switch state {
 			case .loading, .failure:
 				return nil

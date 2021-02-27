@@ -5,6 +5,14 @@ enum WeatherColor: String {
 	case mainGradDark
 	case sunnyLight
 	case sunnyDark
+	case cloudLight
+	case cloudDark
+	case rainLight
+	case rainDark
+	case snowLight
+	case snowDark
+	case thunderLight
+	case thunderDark
 
 	var uiColor: UIColor {
 		 UIColor(named: rawValue)!
@@ -18,6 +26,10 @@ enum WeatherColor: String {
 enum Gradient {
 	case citySelectorBG
 	case sunny
+	case rain
+	case thunder
+	case snow
+	case cloud
 
 	var configuration: GradientConfiguration {
 		switch self {
@@ -27,6 +39,19 @@ enum Gradient {
 		case .sunny:
 			return (colors: [WeatherColor.sunnyLight.cgColor, WeatherColor.sunnyDark.cgColor],
 					direction: GradientOrientation.horizontal.direction)
+		case .rain:
+			return (colors: [WeatherColor.rainLight.cgColor, WeatherColor.rainDark.cgColor],
+					direction: GradientOrientation.horizontal.direction)
+		case .thunder:
+			return (colors: [WeatherColor.thunderLight.cgColor, WeatherColor.thunderDark.cgColor],
+					direction: GradientOrientation.horizontal.direction)
+		case .snow:
+			return (colors: [WeatherColor.snowLight.cgColor, WeatherColor.snowDark.cgColor],
+					direction: GradientOrientation.horizontal.direction)
+		case .cloud:
+			return (colors: [WeatherColor.cloudLight.cgColor, WeatherColor.cloudDark.cgColor],
+					direction: GradientOrientation.horizontal.direction)
+
 		}
 	}
 }
