@@ -19,18 +19,12 @@ final class CitySelectionViewController: UIViewController {
 		bind(viewModel.outputs)
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		viewModel.inputs.viewDidAppear()
-	}
-
 	private func bind(_ outputs: CitySelectionViewModelOutputsType) {
 		outputs
 			.dataSource
 			.sink { [weak self] dataSource in
 				self?.tableView.dataSource = dataSource
 				self?.tableView.delegate = dataSource
-			//	dataSource.tableView = self?.tableView
 			}
 			.store(in: &cancellables)
 

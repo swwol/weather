@@ -1,8 +1,11 @@
 import Combine
 import UIKit
 
+protocol CitySelectionViewModelDelegate: AnyObject {
+	func didSelect(city: City, on viewModel: CitySelectionViewModelType)
+}
+
 protocol CitySelectionViewModelInputsType {
-	func viewDidAppear()
 }
 
 protocol CitySelectionViewModelOutputsType {
@@ -14,6 +17,7 @@ protocol CitySelectionViewModelOutputsType {
 protocol CitySelectionViewModelType {
 	var inputs: CitySelectionViewModelInputsType { get }
 	var outputs: CitySelectionViewModelOutputsType { get }
+	var delegate: CitySelectionViewModelDelegate? { get set }
 }
 
 final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionViewModelInputsType, CitySelectionViewModelOutputsType {
@@ -23,12 +27,19 @@ final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionVie
 	let title: AnyPublisher<String?, Never>
 	let gradient: AnyPublisher<Gradient, Never>
 
+	weak var delegate: CitySelectionViewModelDelegate?
+
 	init(repository: WeatherRepositoryType, localizer: StringLocalizing = Localizer()) {
-		dataSource = Just(CityDataSource(repository: repository)).eraseToAnyPublisher()
+		let cityDataSource = CityDataSource(repository: repository)
+		dataSource = Just(cityDataSource).eraseToAnyPublisher()
 		title = Just(localizer.localize("city.selection.title")).eraseToAnyPublisher()
 		gradient = Just(.citySelectorBG).eraseToAnyPublisher()
+		cityDataSource.delegate = self
 	}
+}
 
-	func viewDidAppear() {
+extension CitySelectionViewModel: CityDataSourceDelegate {
+	func didSelect(city: City, on dataSource: CityDataSource) {
+		delegate?.didSelect(city: city, on: self)
 	}
 }

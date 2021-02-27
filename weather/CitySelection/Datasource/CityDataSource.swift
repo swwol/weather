@@ -1,8 +1,13 @@
 import UIKit
 
+protocol CityDataSourceDelegate: AnyObject {
+	func didSelect(city: City, on dataSource: CityDataSource)
+}
+
 final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
 	private let repository: WeatherRepositoryType
+	weak var delegate: CityDataSourceDelegate?
 
 	init(repository: WeatherRepositoryType) {
 		self.repository = repository
@@ -41,5 +46,10 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		guard let cell = cell as? CityTableViewCell else { return }
 		cell.viewModel.inputs.fetchWeather()
+	}
+
+	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+		let selectedCity = City.allCases[indexPath.section]
+		delegate?.didSelect(city: selectedCity, on: self)
 	}
 }
