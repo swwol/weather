@@ -2,7 +2,9 @@ import Combine
 import UIKit
 
 protocol CityTableViewCellViewModelOutputsType {
-	var cityLabel: AnyPublisher<String?, Never> { get }
+	var city: AnyPublisher<String?, Never> { get }
+	var temp: AnyPublisher<String?, Never> { get }
+	var gradient: AnyPublisher<Gradient, Never> { get }
 }
 
 protocol CityTableViewCellViewModelType {
@@ -13,10 +15,15 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 
 	var outputs: CityTableViewCellViewModelOutputsType { self }
 
-	let cityLabel: AnyPublisher<String?, Never>
+	let city: AnyPublisher<String?, Never>
+	let temp: AnyPublisher<String?, Never>
+	let gradient: AnyPublisher<Gradient, Never>
 
 	init(city: City, localizer: StringLocalizing = Localizer()) {
-		self.cityLabel = Just(localizer.localize(city.localizedKey))
+		self.city = Just(localizer.localize(city.localizedKey))
 			.eraseToAnyPublisher()
+		self.temp = Just("23c").eraseToAnyPublisher()
+		gradient = Just(.sunny).eraseToAnyPublisher()
+
 	}
 }

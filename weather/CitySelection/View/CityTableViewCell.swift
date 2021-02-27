@@ -5,6 +5,7 @@ final class CityTableViewCell: UITableViewCell {
 	@IBOutlet private weak var icon: UIImageView!
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet private weak var tempLabel: UILabel!
+	@IBOutlet private weak var gradientView: GradientView!
 
 	private var cancellables = Set<AnyCancellable>()
 
@@ -22,9 +23,16 @@ final class CityTableViewCell: UITableViewCell {
 
 	private func bind(_ outputs: CityTableViewCellViewModelOutputsType) {
 		outputs
-			.cityLabel
+			.city
 			.assign(to: \.text, on: cityLabel)
 			.store(in: &cancellables)
-
+		outputs
+			.temp
+			.assign(to: \.text, on: tempLabel)
+			.store(in: &cancellables)
+		outputs
+			.gradient
+			.set(on: gradientView)
+			.store(in: &cancellables)
 	}
 }

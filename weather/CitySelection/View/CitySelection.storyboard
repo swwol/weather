@@ -36,6 +36,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="77.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oD-Oh-hjc" customClass="GradientView" customModule="weather" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="77.5"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZh-2q-9c5">
                                                     <rect key="frame" x="159" y="24.5" width="56.5" height="29"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
@@ -59,10 +63,14 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                                             <constraints>
+                                                <constraint firstItem="5oD-Oh-hjc" firstAttribute="leading" secondItem="0TY-py-Q6T" secondAttribute="leading" id="22h-up-qjh"/>
                                                 <constraint firstAttribute="bottom" secondItem="r6y-Lk-iEt" secondAttribute="bottom" constant="18" id="9OH-fT-aVE"/>
                                                 <constraint firstItem="EZh-2q-9c5" firstAttribute="centerY" secondItem="0TY-py-Q6T" secondAttribute="centerY" id="FhH-HR-91U"/>
                                                 <constraint firstItem="r6y-Lk-iEt" firstAttribute="top" secondItem="0TY-py-Q6T" secondAttribute="top" constant="18" id="KTg-SW-tRl"/>
                                                 <constraint firstItem="O0v-Gf-AB3" firstAttribute="centerY" secondItem="0TY-py-Q6T" secondAttribute="centerY" id="PrG-1H-3gK"/>
+                                                <constraint firstAttribute="bottom" secondItem="5oD-Oh-hjc" secondAttribute="bottom" id="dXa-Kr-Wqx"/>
+                                                <constraint firstAttribute="trailing" secondItem="5oD-Oh-hjc" secondAttribute="trailing" id="kyh-Yu-Bbu"/>
+                                                <constraint firstItem="5oD-Oh-hjc" firstAttribute="top" secondItem="0TY-py-Q6T" secondAttribute="top" id="nzA-nI-GV6"/>
                                                 <constraint firstAttribute="trailing" secondItem="r6y-Lk-iEt" secondAttribute="trailing" constant="20" id="qdB-e7-vOi"/>
                                                 <constraint firstItem="EZh-2q-9c5" firstAttribute="centerX" secondItem="0TY-py-Q6T" secondAttribute="centerX" id="rWd-1i-GoL"/>
                                                 <constraint firstItem="O0v-Gf-AB3" firstAttribute="leading" secondItem="0TY-py-Q6T" secondAttribute="leading" constant="20" id="tbt-bw-jki"/>
@@ -70,6 +78,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="EZh-2q-9c5" id="njX-bA-gVd"/>
+                                            <outlet property="gradientView" destination="5oD-Oh-hjc" id="j7t-OP-uBP"/>
                                             <outlet property="icon" destination="O0v-Gf-AB3" id="ur9-W1-NXY"/>
                                             <outlet property="tempLabel" destination="r6y-Lk-iEt" id="XWg-8A-eoW"/>
                                         </connections>
@@ -94,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ay6-fg-Nvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="62"/>
+            <point key="canvasLocation" x="205.79710144927537" y="61.607142857142854"/>
         </scene>
     </scenes>
     <resources>
