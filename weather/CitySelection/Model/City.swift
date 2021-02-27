@@ -10,4 +10,19 @@ enum City: String, CaseIterable {
 	var localizedKey: String {
 		rawValue
 	}
+
+	var id: String {
+		switch self {
+		case .london:
+			return "2643743"
+		case .tokyo:
+			return "1850147"
+		case .newYork:
+			return "5128638"
+		case .berlin:
+			return "2950158"
+		case .paris:
+			return "2988506"
+		}
+	}
 }

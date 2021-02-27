@@ -23,7 +23,7 @@ final class CityTableViewCell: UITableViewCell {
 
 	private func bind(_ outputs: CityTableViewCellViewModelOutputsType) {
 		outputs
-			.city
+			.cityName
 			.assign(to: \.text, on: cityLabel)
 			.store(in: &cancellables)
 		outputs

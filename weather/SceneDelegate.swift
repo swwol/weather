@@ -3,7 +3,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	var window: UIWindow?
-	private let coordinatorFactory = CoordinatorFactory()
+	private let coordinatorFactory = CoordinatorFactory(repository: WeatherRepository())
 	private var appCoordinator: AppCoordinatorType!
 
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

@@ -23,8 +23,8 @@ final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionVie
 	let title: AnyPublisher<String?, Never>
 	let gradient: AnyPublisher<Gradient, Never>
 
-	init(localizer: StringLocalizing = Localizer()) {
-		dataSource = Just(CityDataSource()).eraseToAnyPublisher()
+	init(repository: WeatherRepositoryType, localizer: StringLocalizing = Localizer()) {
+		dataSource = Just(CityDataSource(repository: repository)).eraseToAnyPublisher()
 		title = Just(localizer.localize("city.selection.title")).eraseToAnyPublisher()
 		gradient = Just(.citySelectorBG).eraseToAnyPublisher()
 	}

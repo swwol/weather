@@ -2,6 +2,12 @@ import UIKit
 
 final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
+	private let repository: WeatherRepositoryType
+
+	init(repository: WeatherRepositoryType) {
+		self.repository = repository
+	}
+
 	enum Constants {
 		static let cellSpacing: CGFloat = 10
 	}
@@ -28,7 +34,12 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier) as? CityTableViewCell else {
 			fatalError("unable to dequeue CityTableViewCell")
 		}
-		cell.viewModel = CityTableViewCellViewModel(city: City.allCases[indexPath.section])
+		cell.viewModel = CityTableViewCellViewModel(city: City.allCases[indexPath.section], repository: repository)
 		return cell
+	}
+
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		guard let cell = cell as? CityTableViewCell else { return }
+		cell.viewModel.inputs.fetchWeather()
 	}
 }
