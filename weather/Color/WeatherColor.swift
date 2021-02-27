@@ -13,3 +13,15 @@ enum WeatherColor: String {
 	}
 }
 
+enum Gradient {
+	case citySelectorBG
+
+	var configuration: GradientConfiguration {
+		switch self {
+		case .citySelectorBG:
+			return (colors: [WeatherColor.mainGradDark.cgColor, WeatherColor.mainGradLight.cgColor],
+					direction: GradientOrientation.vertical.direction)
+		}
+	}
+}
+

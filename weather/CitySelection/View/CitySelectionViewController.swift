@@ -8,10 +8,14 @@ final class CitySelectionViewController: UIViewController {
 	var viewModel: CitySelectionViewModelType!
 	private var cancellables = Set<AnyCancellable>()
 
+	var gradientView: GradientView {
+		self.view as! GradientView
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.backgroundColor = .clear
-		(view as? GradientView)?.setGradient(colors: [WeatherColor.mainGradDark.cgColor, WeatherColor.mainGradLight.cgColor])
+		tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
 		bind(viewModel.outputs)
 	}
 
@@ -33,6 +37,11 @@ final class CitySelectionViewController: UIViewController {
 		outputs
 			.title
 			.assign(to: \.title, on: self)
+			.store(in: &cancellables)
+
+		outputs
+			.gradient
+			.set(on: gradientView)
 			.store(in: &cancellables)
 	}
 }
