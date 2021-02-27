@@ -6,6 +6,7 @@ protocol CityTableViewCellViewModelOutputsType {
 	var temp: AnyPublisher<String?, Never> { get }
 	var gradient: AnyPublisher<Gradient, Never> { get }
 	var state: AnyPublisher<CityTableViewCellViewModel.State, Never> { get }
+	var icon: AnyPublisher<UIImage?, Never> { get }
 }
 
 protocol CityTableViewCellViewModelInputsType {
@@ -31,6 +32,8 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 	let cityName: AnyPublisher<String?, Never>
 	let temp: AnyPublisher<String?, Never>
 	let gradient: AnyPublisher<Gradient, Never>
+	let icon: AnyPublisher<UIImage?, Never>
+
 	var state: AnyPublisher<State, Never> {
 		statePublisher.eraseToAnyPublisher()
 	}
@@ -39,7 +42,6 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 	private let city: City
 	private let statePublisher = PassthroughSubject<State, Never>()
 	private var cancellables = Set<AnyCancellable>()
-
 
 	init(city: City, repository: WeatherRepositoryType, localizer: StringLocalizing = Localizer()) {
 		self.city = city
@@ -54,6 +56,19 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 				return "-"
 			case let .complete(weather):
 				return "\(weather.properties.temp)c"
+			}
+		}
+		.eraseToAnyPublisher()
+
+		self.icon = statePublisher.map { state in
+			switch state {
+			case .loading, .failure:
+				return nil
+			case let .complete(response):
+				guard let weather = response.weather.first else {
+					return nil
+				}
+				return UIImage(systemName: weather.icon.sfSymbolName)
 			}
 		}
 		.eraseToAnyPublisher()

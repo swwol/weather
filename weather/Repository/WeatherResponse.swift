@@ -2,6 +2,45 @@ import Foundation
 
 struct WeatherResponse: Decodable, Equatable {
 
+	enum WeatherIcon: String, Decodable {
+	 case thunder = "11d"
+	 case drizzle = "09d"
+	 case rain = "10d"
+	 case snow = "13d"
+	 case atmosphere = "50d"
+	 case clearDay = "01d"
+	 case clearNight = "01n"
+	 case fewCloudsDay = "02d"
+	 case fewCloudsNight = "02n"
+	 case scatteredCloudsDay = "03d"
+	 case scatteredCloudsNight = "03n"
+	 case overcastDay = "04d"
+	 case overcasetNight = "04n"
+
+	 var sfSymbolName: String {
+		 switch self {
+		 case .thunder:
+			 return "cloud.bolt.rain"
+		 case .drizzle:
+			 return "cloud.drizzle"
+		 case .rain:
+			 return "cloud.rain"
+		 case .snow:
+			 return "cloud.snow"
+		 case .atmosphere:
+			 return "cloud.fog"
+		 case .clearDay:
+			 return "sun.max"
+		 case .clearNight:
+			 return "moon"
+		 case .fewCloudsDay, .scatteredCloudsDay, .overcastDay:
+			 return "cloud.sun"
+		 case .fewCloudsNight, .scatteredCloudsNight, .overcasetNight:
+			 return "cloud.moon"
+		 }
+	 }
+ }
+
 	struct Coord: Decodable, Equatable {
 		let lon: Double
 		let lat: Double
@@ -11,7 +50,7 @@ struct WeatherResponse: Decodable, Equatable {
 		let id: Int
 		let main: String
 		let description: String
-		let icon: String
+		let icon: WeatherIcon
 	}
 
 	struct WeatherProperites: Decodable, Equatable {
@@ -42,8 +81,8 @@ struct WeatherResponse: Decodable, Equatable {
 	}
 
 	struct Volume: Decodable, Equatable {
-		let oneHour: Double
-		let threeHour: Double
+		let oneHour: Double?
+		let threeHour: Double?
 
 		enum CodingKeys: String, CodingKey {
 			case oneHour = "1h"

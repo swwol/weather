@@ -19,6 +19,7 @@ final class CityTableViewCell: UITableViewCell {
 		super.awakeFromNib()
 		layer.cornerRadius = 7
 		clipsToBounds = true
+		icon.tintColor = .white
 	}
 
 	private func bind(_ outputs: CityTableViewCellViewModelOutputsType) {
@@ -33,6 +34,10 @@ final class CityTableViewCell: UITableViewCell {
 		outputs
 			.gradient
 			.set(on: gradientView)
+			.store(in: &cancellables)
+		outputs
+			.icon
+			.assign(to: \.image, on: icon)
 			.store(in: &cancellables)
 	}
 }

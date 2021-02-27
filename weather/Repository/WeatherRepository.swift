@@ -1,5 +1,5 @@
 import Combine
-import Foundation
+import UIKit
 
 protocol WeatherRepositoryType {
 	func getWeather(for city: City) -> AnyPublisher<WeatherResponse, Error>
