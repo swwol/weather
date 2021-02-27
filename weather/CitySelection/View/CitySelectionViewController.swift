@@ -29,6 +29,11 @@ final class CitySelectionViewController: UIViewController {
 			//	dataSource.tableView = self?.tableView
 			}
 			.store(in: &cancellables)
+
+		outputs
+			.title
+			.assign(to: \.title, on: self)
+			.store(in: &cancellables)
 	}
 }
 

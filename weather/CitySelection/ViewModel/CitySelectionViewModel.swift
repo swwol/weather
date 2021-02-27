@@ -7,6 +7,7 @@ protocol CitySelectionViewModelInputsType {
 
 protocol CitySelectionViewModelOutputsType {
 	var dataSource: AnyPublisher<CityDataSource, Never> { get }
+	var title: AnyPublisher<String?, Never> { get }
 }
 
 protocol CitySelectionViewModelType {
@@ -19,9 +20,11 @@ final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionVie
 	var inputs: CitySelectionViewModelInputsType { return self }
 	var outputs: CitySelectionViewModelOutputsType { return self }
 	let dataSource: AnyPublisher<CityDataSource, Never>
+	let title: AnyPublisher<String?, Never>
 
-	init() {
+	init(localizer: StringLocalizing = Localizer()) {
 		dataSource = Just(CityDataSource()).eraseToAnyPublisher()
+		title = Just(localizer.localize("city.selection.title")).eraseToAnyPublisher()
 	}
 
 	func viewDidAppear() {

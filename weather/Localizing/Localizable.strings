@@ -1,3 +1,7 @@
+//City title
+
+"city.selection.title" = "Cities Weather";
+
 // Cities
 
 "london" = "London";
