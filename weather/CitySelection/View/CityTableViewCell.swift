@@ -40,4 +40,10 @@ final class CityTableViewCell: UITableViewCell {
 			.assign(to: \.image, on: icon)
 			.store(in: &cancellables)
 	}
+
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		cancellables.forEach { $0.cancel() }
+		cancellables.removeAll()
+	}
 }

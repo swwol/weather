@@ -2,7 +2,7 @@ import Combine
 import UIKit
 
 protocol CitySelectionViewModelDelegate: AnyObject {
-	func didSelect(city: City, on viewModel: CitySelectionViewModelType)
+	func didSelect(city: City, weather: WeatherResponse?, on viewModel: CitySelectionViewModelType)
 }
 
 protocol CitySelectionViewModelInputsType {
@@ -39,7 +39,7 @@ final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionVie
 }
 
 extension CitySelectionViewModel: CityDataSourceDelegate {
-	func didSelect(city: City, on dataSource: CityDataSource) {
-		delegate?.didSelect(city: city, on: self)
+	func didSelect(city: City, weather: WeatherResponse?, on dataSource: CityDataSource) {
+		delegate?.didSelect(city: city, weather: weather, on: self)
 	}
 }

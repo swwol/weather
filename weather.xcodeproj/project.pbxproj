@@ -37,6 +37,9 @@
 		0E47EE0A25EA68D200B46237 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE0925EA68D200B46237 /* WeatherRepository.swift */; };
 		0E47EE1C25EA7C1800B46237 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE1125EA74BD00B46237 /* WeatherResponse.swift */; };
 		0E47EE2525EAE81400B46237 /* CityDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE2425EAE81400B46237 /* CityDetailCoordinator.swift */; };
+		0E47EE2E25EAE95B00B46237 /* CityDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EE2D25EAE95B00B46237 /* CityDetail.storyboard */; };
+		0E47EE3325EAE9C100B46237 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE3225EAE9C100B46237 /* CityDetailViewController.swift */; };
+		0E47EE3925EAEA3900B46237 /* CityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE3825EAEA3900B46237 /* CityDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		0E47EE0925EA68D200B46237 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
 		0E47EE1125EA74BD00B46237 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		0E47EE2425EAE81400B46237 /* CityDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailCoordinator.swift; sourceTree = "<group>"; };
+		0E47EE2D25EAE95B00B46237 /* CityDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityDetail.storyboard; sourceTree = "<group>"; };
+		0E47EE3225EAE9C100B46237 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
+		0E47EE3825EAEA3900B46237 /* CityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,9 +291,28 @@
 		0E47EE2325EAE7F200B46237 /* CityDetail */ = {
 			isa = PBXGroup;
 			children = (
+				0E47EE3725EAEA2100B46237 /* ViewModel */,
+				0E47EE2C25EAE94300B46237 /* View */,
 				0E47EE2425EAE81400B46237 /* CityDetailCoordinator.swift */,
 			);
 			path = CityDetail;
+			sourceTree = "<group>";
+		};
+		0E47EE2C25EAE94300B46237 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E47EE2D25EAE95B00B46237 /* CityDetail.storyboard */,
+				0E47EE3225EAE9C100B46237 /* CityDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E47EE3725EAEA2100B46237 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0E47EE3825EAEA3900B46237 /* CityDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +425,7 @@
 				0E47EDE525E9B61000B46237 /* Localizable.strings in Resources */,
 				0E26622525E86A1600F70B3F /* CitySelection.storyboard in Resources */,
 				0E2661CA25E8521F00F70B3F /* Main.storyboard in Resources */,
+				0E47EE2E25EAE95B00B46237 /* CityDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,9 +460,11 @@
 				0E47EDF925E9C93C00B46237 /* GradientView.swift in Sources */,
 				0E2661C325E8521F00F70B3F /* AppDelegate.swift in Sources */,
 				0E47EDD325E9A34F00B46237 /* CityTableViewCell.swift in Sources */,
+				0E47EE3325EAE9C100B46237 /* CityDetailViewController.swift in Sources */,
 				0E26620E25E867A100F70B3F /* City.swift in Sources */,
 				0E47EDFE25E9CD7500B46237 /* BlankNavigationBar.swift in Sources */,
 				0E2661FF25E8624C00F70B3F /* AppCoordinator.swift in Sources */,
+				0E47EE3925EAEA3900B46237 /* CityDetailViewModel.swift in Sources */,
 				0E2661C525E8521F00F70B3F /* SceneDelegate.swift in Sources */,
 				0E47EE1C25EA7C1800B46237 /* WeatherResponse.swift in Sources */,
 				0E2661F725E8615D00F70B3F /* CoordinatorFactory.swift in Sources */,

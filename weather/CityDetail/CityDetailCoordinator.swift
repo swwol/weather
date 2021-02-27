@@ -1,10 +1,20 @@
 import UIKit
 
 protocol CityDetailCoordinatorType {
-	func start(with city: City, on context: UINavigationController)
+	func start(with city: City, weather: WeatherResponse?, on context: UINavigationController)
 }
 
 final class CityDetailCoordinator: CityDetailCoordinatorType {
-	func start(with city: City, on context: UINavigationController) {
+	private let repository: WeatherRepositoryType
+
+	init(repository: WeatherRepositoryType) {
+		self.repository = repository
+	}
+
+	func start(with city: City, weather: WeatherResponse?, on context: UINavigationController) {
+		let viewModel = CityDetailViewModel(repository: repository, weather: weather)
+		let viewController: CityDetailViewController = .fromStoryboard()
+		viewController.viewModel = viewModel
+		context.pushViewController(viewController, animated: true)
 	}
 }

@@ -40,7 +40,7 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 
 	private let repository: WeatherRepositoryType
 	private let city: City
-	private let statePublisher = PassthroughSubject<State, Never>()
+	private let statePublisher = CurrentValueSubject<State, Never>(.loading)
 	private var cancellables = Set<AnyCancellable>()
 
 	init(city: City, repository: WeatherRepositoryType, localizer: StringLocalizing = Localizer()) {

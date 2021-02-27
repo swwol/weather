@@ -12,6 +12,7 @@ final class AppCoordinator: AppCoordinatorType {
 		 cityDetailCoordinator: CityDetailCoordinatorType) {
 		self.citySelectionCoordinator = citySelectionCoordinator
 		self.cityDetailCoordinator = cityDetailCoordinator
+		citySelectionCoordinator.delegate = self
 	}
 	func start(on context: UINavigationController) {
 		self.context = context
@@ -20,7 +21,7 @@ final class AppCoordinator: AppCoordinatorType {
 }
 
 extension AppCoordinator: CitySelectionCoordinatorDelegate {
-	func didSelect(city: City, on coordinator: CitySelectionCoordinatorType) {
-		cityDetailCoordinator.start(with: city, on: context)
+	func didSelect(city: City, weather: WeatherResponse?, on coordinator: CitySelectionCoordinatorType) {
+		cityDetailCoordinator.start(with: city, weather: weather, on: context)
 	}
 }

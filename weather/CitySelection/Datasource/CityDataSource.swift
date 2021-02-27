@@ -1,13 +1,16 @@
+import Combine
 import UIKit
 
 protocol CityDataSourceDelegate: AnyObject {
-	func didSelect(city: City, on dataSource: CityDataSource)
+	func didSelect(city: City, weather: WeatherResponse?, on dataSource: CityDataSource)
 }
 
 final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
 	private let repository: WeatherRepositoryType
 	weak var delegate: CityDataSourceDelegate?
+	var viewModels: [City: CityTableViewCellViewModelType] = [:]
+	var cancellable: AnyCancellable?
 
 	init(repository: WeatherRepositoryType) {
 		self.repository = repository
@@ -39,7 +42,10 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier) as? CityTableViewCell else {
 			fatalError("unable to dequeue CityTableViewCell")
 		}
-		cell.viewModel = CityTableViewCellViewModel(city: City.allCases[indexPath.section], repository: repository)
+		let city = City.allCases[indexPath.section]
+		let viewModel = CityTableViewCellViewModel(city: city, repository: repository)
+		viewModels[city] = viewModel
+		cell.viewModel = viewModel
 		return cell
 	}
 
@@ -48,8 +54,22 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 		cell.viewModel.inputs.fetchWeather()
 	}
 
-	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		let selectedCity = City.allCases[indexPath.section]
-		delegate?.didSelect(city: selectedCity, on: self)
+	func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		let city = City.allCases[indexPath.section]
+		viewModels[city] = nil
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let city = City.allCases[indexPath.section]
+
+		cancellable = viewModels[city]?.outputs.state.sink { [weak self] state in
+			guard let self = self else { return }
+			switch state {
+			case let .complete(response):
+				self.delegate?.didSelect(city: city, weather: response, on: self)
+			default:
+				self.delegate?.didSelect(city: city, weather: nil, on: self)
+			}
+		}
 	}
 }

@@ -3,6 +3,8 @@ import UIKit
 enum WeatherColor: String {
 	case mainGradLight
 	case mainGradDark
+	case detailGradLight
+	case detailGradDark
 	case sunnyLight
 	case sunnyDark
 	case cloudLight
@@ -25,6 +27,7 @@ enum WeatherColor: String {
 
 enum Gradient {
 	case citySelectorBG
+	case cityDetailBG
 	case sunny
 	case rain
 	case thunder
@@ -35,6 +38,9 @@ enum Gradient {
 		switch self {
 		case .citySelectorBG:
 			return (colors: [WeatherColor.mainGradDark.cgColor, WeatherColor.mainGradLight.cgColor],
+					direction: GradientOrientation.vertical.direction)
+		case .cityDetailBG:
+			return (colors: [WeatherColor.detailGradDark.cgColor, WeatherColor.detailGradLight.cgColor],
 					direction: GradientOrientation.vertical.direction)
 		case .sunny:
 			return (colors: [WeatherColor.sunnyLight.cgColor, WeatherColor.sunnyDark.cgColor],
@@ -51,7 +57,6 @@ enum Gradient {
 		case .cloud:
 			return (colors: [WeatherColor.cloudLight.cgColor, WeatherColor.cloudDark.cgColor],
 					direction: GradientOrientation.horizontal.direction)
-
 		}
 	}
 }

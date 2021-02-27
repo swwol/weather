@@ -8,10 +8,15 @@ struct CoordinatorFactory {
 		self.repository = repository
 	}
 	func makeApp() -> AppCoordinatorType {
-		AppCoordinator(citySelectionCoordinator: makeCitySelection())
+		AppCoordinator(citySelectionCoordinator: makeCitySelection(),
+					   cityDetailCoordinator: makeCityDetail())
 	}
 
 	func makeCitySelection() -> CitySelectionCoordinatorType {
 		CitySelectionCoordinator(repository: repository)
+	}
+
+	func makeCityDetail() -> CityDetailCoordinatorType {
+		CityDetailCoordinator(repository: repository)
 	}
 }
