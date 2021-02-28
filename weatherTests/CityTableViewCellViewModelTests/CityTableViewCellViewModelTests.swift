@@ -30,35 +30,35 @@ final class CityTableViewCellViewModelTests: XCTestCase {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.state.expectEqual(to: .failure, with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 
 	func test_GivenSuccess_ThenStateIsComplete() {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.state.expectEqual(to: .complete(WeatherResponse.fake()), with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 
 	func test_GivenSuccess_ThenGradientSet() {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.gradient.expectEqual(to: .sunny, with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 
 	func test_GivenSuccess_ThenTempSet() {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.temp.expectEqual(to: "1.0c", with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 
 	func test_GivenSuccess_ThenIconSet() {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.icon.expectEqual(to: UIImage(systemName: "sun.max"), with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 
 	func test_GivenError_ThenGradientSet() {
@@ -66,7 +66,7 @@ final class CityTableViewCellViewModelTests: XCTestCase {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.gradient.expectEqual(to: .cloud, with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 
 	func test_GivenError_ThenTempSet() {
@@ -74,7 +74,7 @@ final class CityTableViewCellViewModelTests: XCTestCase {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.temp.expectEqual(to: "-", with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 
 	func test_GivenError_ThenIconSet() {
@@ -82,6 +82,6 @@ final class CityTableViewCellViewModelTests: XCTestCase {
 		viewModel.inputs.fetchWeather()
 		let expectation = self.expectation(description: "test")
 		viewModel.outputs.icon.expectEqual(to: nil, with: expectation)
-		waitForExpectations(timeout: 1)
+		waitForExpectations(timeout: 0.01)
 	}
 }

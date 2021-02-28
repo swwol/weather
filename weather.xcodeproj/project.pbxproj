@@ -47,6 +47,7 @@
 		0E47EE6125EC0CD500B46237 /* MockCitySelectionViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE6025EC0CD500B46237 /* MockCitySelectionViewModelDelegate.swift */; };
 		0E47EE6625EC0FAA00B46237 /* Publisher+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE6525EC0FAA00B46237 /* Publisher+Tests.swift */; };
 		0E47EE6D25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE6C25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift */; };
+		0E47EE7625EC1D0300B46237 /* CityDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE7525EC1D0300B46237 /* CityDetailViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		0E47EE6025EC0CD500B46237 /* MockCitySelectionViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCitySelectionViewModelDelegate.swift; sourceTree = "<group>"; };
 		0E47EE6525EC0FAA00B46237 /* Publisher+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Tests.swift"; sourceTree = "<group>"; };
 		0E47EE6C25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
+		0E47EE7525EC1D0300B46237 /* CityDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		0E2661D825E8522100F70B3F /* weatherTests */ = {
 			isa = PBXGroup;
 			children = (
+				0E47EE7425EC1CE700B46237 /* CityDetailViewModelTests */,
 				0E47EE6B25EC168A00B46237 /* CityTableViewCellViewModelTests */,
 				0E47EE6A25EC167A00B46237 /* CitySelectonViewModelTests */,
 				0E2661DB25E8522100F70B3F /* Info.plist */,
@@ -350,6 +353,14 @@
 				0E47EE6C25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift */,
 			);
 			path = CityTableViewCellViewModelTests;
+			sourceTree = "<group>";
+		};
+		0E47EE7425EC1CE700B46237 /* CityDetailViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				0E47EE7525EC1D0300B46237 /* CityDetailViewModelTests.swift */,
+			);
+			path = CityDetailViewModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +532,7 @@
 				0E47EE5725EC0B8B00B46237 /* FakeIntervalTimer.swift in Sources */,
 				0E47EE6125EC0CD500B46237 /* MockCitySelectionViewModelDelegate.swift in Sources */,
 				0E47EE5C25EC0C9D00B46237 /* FakeLocalizer.swift in Sources */,
+				0E47EE7625EC1D0300B46237 /* CityDetailViewModelTests.swift in Sources */,
 				0E47EE6D25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift in Sources */,
 				0E47EE6625EC0FAA00B46237 /* Publisher+Tests.swift in Sources */,
 				0E47EE5225EC092200B46237 /* FakeWeatherRepository.swift in Sources */,
