@@ -7,6 +7,7 @@ protocol CityTableViewCellViewModelOutputsType {
 	var gradient: AnyPublisher<Gradient, Never> { get }
 	var state: AnyPublisher<CityTableViewCellViewModel.State, Never> { get }
 	var icon: AnyPublisher<UIImage?, Never> { get }
+	var currentWeather: WeatherResponse? { get }
 }
 
 protocol CityTableViewCellViewModelInputsType {
@@ -36,6 +37,13 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 
 	var state: AnyPublisher<State, Never> {
 		statePublisher.eraseToAnyPublisher()
+	}
+
+	var currentWeather: WeatherResponse? {
+		if case let .complete(weather) = statePublisher.value {
+			return weather
+		}
+		return nil
 	}
 
 	private let repository: WeatherRepositoryType

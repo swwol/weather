@@ -40,6 +40,7 @@
 		0E47EE2E25EAE95B00B46237 /* CityDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EE2D25EAE95B00B46237 /* CityDetail.storyboard */; };
 		0E47EE3325EAE9C100B46237 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE3225EAE9C100B46237 /* CityDetailViewController.swift */; };
 		0E47EE3925EAEA3900B46237 /* CityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE3825EAEA3900B46237 /* CityDetailViewModel.swift */; };
+		0E47EE4A25EBEED900B46237 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE4925EBEED900B46237 /* IntervalTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		0E47EE2D25EAE95B00B46237 /* CityDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityDetail.storyboard; sourceTree = "<group>"; };
 		0E47EE3225EAE9C100B46237 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		0E47EE3825EAEA3900B46237 /* CityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewModel.swift; sourceTree = "<group>"; };
+		0E47EE4925EBEED900B46237 /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				0E2661CB25E8522000F70B3F /* Assets.xcassets */,
 				0E2661CD25E8522000F70B3F /* LaunchScreen.storyboard */,
 				0E2661D025E8522000F70B3F /* Info.plist */,
+				0E47EE4925EBEED900B46237 /* IntervalTimer.swift */,
 			);
 			path = weather;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				0E47EE3925EAEA3900B46237 /* CityDetailViewModel.swift in Sources */,
 				0E2661C525E8521F00F70B3F /* SceneDelegate.swift in Sources */,
 				0E47EE1C25EA7C1800B46237 /* WeatherResponse.swift in Sources */,
+				0E47EE4A25EBEED900B46237 /* IntervalTimer.swift in Sources */,
 				0E2661F725E8615D00F70B3F /* CoordinatorFactory.swift in Sources */,
 				0E47EDD825E9B28300B46237 /* CityTableViewCellViewModel.swift in Sources */,
 				0E47EDF125E9C8FF00B46237 /* WeatherColor.swift in Sources */,

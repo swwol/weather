@@ -11,7 +11,9 @@ protocol CityDetailViewModelOutputsType {
 	var highLow: AnyPublisher<String?, Never> { get }
 }
 
-protocol CityDetailViewModelInputsType {}
+protocol CityDetailViewModelInputsType {
+	func viewDidDissappear()
+}
 
 protocol CityDetailViewModelType {
 	var inputs: CityDetailViewModelInputsType { get }
@@ -40,9 +42,14 @@ final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInp
 	private let city: City
 	private let statePublisher: CurrentValueSubject<State, Never>
 	private var cancellables = Set<AnyCancellable>()
-	private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
+	private let timer: IntervalTimerType
 
-	init(city: City, repository: WeatherRepositoryType, weather: WeatherResponse?, localizer: StringLocalizing = Localizer()) {
+	init(city: City,
+		 repository: WeatherRepositoryType,
+		 weather: WeatherResponse?,
+		 timer: IntervalTimerType = IntervalTimer(interval: 5),
+		 localizer: StringLocalizing = Localizer()) {
+		self.timer = timer
 		self.repository = repository
 		self.city = city
 		gradient = Just(.cityDetailBG).eraseToAnyPublisher()
@@ -114,17 +121,20 @@ final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInp
 		}
 		.eraseToAnyPublisher()
 
-		timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+		if statePublisher.value == .loading {
+			fetchWeather()
+		}
 
-		timer.sink { [weak self] _ in
-			print("updating")
+		timer.publisher.sink { [weak self] _ in
 			self?.fetchWeather()
 		}
 		.store(in: &cancellables)
 
-		if statePublisher.value == .loading {
-			fetchWeather()
-		}
+		timer.start()
+	}
+
+	func viewDidDissappear() {
+		timer.stop()
 	}
 
 	private func fetchWeather() {

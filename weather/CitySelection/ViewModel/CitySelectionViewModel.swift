@@ -6,6 +6,8 @@ protocol CitySelectionViewModelDelegate: AnyObject {
 }
 
 protocol CitySelectionViewModelInputsType {
+	func viewDidAppear()
+	func viewDidDisappear()
 }
 
 protocol CitySelectionViewModelOutputsType {
@@ -26,15 +28,34 @@ final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionVie
 	let dataSource: AnyPublisher<CityDataSource, Never>
 	let title: AnyPublisher<String?, Never>
 	let gradient: AnyPublisher<Gradient, Never>
+	private let timer: IntervalTimerType
+	private var cancellable: AnyCancellable?
+	private let cityDataSource: CityDataSource
 
 	weak var delegate: CitySelectionViewModelDelegate?
 
-	init(repository: WeatherRepositoryType, localizer: StringLocalizing = Localizer()) {
-		let cityDataSource = CityDataSource(repository: repository)
+	init(repository: WeatherRepositoryType,
+		 timer: IntervalTimerType = IntervalTimer(interval: 5),
+		 localizer: StringLocalizing = Localizer()) {
+		cityDataSource = CityDataSource(repository: repository)
 		dataSource = Just(cityDataSource).eraseToAnyPublisher()
 		title = Just(localizer.localize("city.selection.title")).eraseToAnyPublisher()
 		gradient = Just(.citySelectorBG).eraseToAnyPublisher()
+		self.timer = timer
+
+		cancellable = timer.publisher.sink { [weak self] _ in
+			self?.cityDataSource.updateVisibleCells()
+		}
+
 		cityDataSource.delegate = self
+	}
+
+	func viewDidAppear() {
+		timer.start()
+	}
+
+	func viewDidDisappear() {
+		timer.stop()
 	}
 }
 

@@ -35,6 +35,11 @@ final class CityDetailViewController: UIViewController {
 		bind(viewModel.outputs)
 	}
 
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		viewModel.inputs.viewDidDissappear()
+	}
+
 	private func bind(_ outputs: CityDetailViewModelOutputsType) {
 		outputs
 			.gradient

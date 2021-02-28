@@ -61,15 +61,13 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let city = City.allCases[indexPath.section]
-
-		cancellable = viewModels[city]?.outputs.state.sink { [weak self] state in
-			guard let self = self else { return }
-			switch state {
-			case let .complete(response):
-				self.delegate?.didSelect(city: city, weather: response, on: self)
-			default:
-				self.delegate?.didSelect(city: city, weather: nil, on: self)
-			}
+		guard let viewModel = viewModels[city] else { return }
+		self.delegate?.didSelect(city: city, weather: viewModel.outputs.currentWeather, on: self)
+	}
+	
+	func updateVisibleCells() {
+		viewModels.values.forEach { viewModel in
+			viewModel.inputs.fetchWeather()
 		}
 	}
 }

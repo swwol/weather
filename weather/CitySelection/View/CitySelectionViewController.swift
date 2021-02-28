@@ -19,6 +19,16 @@ final class CitySelectionViewController: UIViewController {
 		bind(viewModel.outputs)
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		viewModel.inputs.viewDidAppear()
+	}
+
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		viewModel.inputs.viewDidDisappear()
+	}
+
 	private func bind(_ outputs: CitySelectionViewModelOutputsType) {
 		outputs
 			.dataSource
