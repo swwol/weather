@@ -36,10 +36,15 @@ final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInp
 	let weatherDescription: AnyPublisher<String?, Never>
 	let feelLike: AnyPublisher<String?, Never>
 	let highLow: AnyPublisher<String?, Never>
-
+	private let repository: WeatherRepositoryType
+	private let city: City
 	private let statePublisher: CurrentValueSubject<State, Never>
+	private var cancellables = Set<AnyCancellable>()
+	private let timer: Publishers.Autoconnect<Timer.TimerPublisher>
 
 	init(city: City, repository: WeatherRepositoryType, weather: WeatherResponse?, localizer: StringLocalizing = Localizer()) {
+		self.repository = repository
+		self.city = city
 		gradient = Just(.cityDetailBG).eraseToAnyPublisher()
 		cityName = Just(localizer.localize(city.localizedKey))
 			.eraseToAnyPublisher()
@@ -108,5 +113,36 @@ final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInp
 			}
 		}
 		.eraseToAnyPublisher()
+
+		timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+
+		timer.sink { [weak self] _ in
+			print("updating")
+			self?.fetchWeather()
+		}
+		.store(in: &cancellables)
+
+		if statePublisher.value == .loading {
+			fetchWeather()
+		}
+	}
+
+	private func fetchWeather() {
+		statePublisher.send(.loading)
+		repository
+			.getWeather(for: city)
+			.receive(on: DispatchQueue.main)
+			.sink(receiveCompletion: { [weak self] completion in
+				guard let self = self else { return }
+				switch completion {
+				case .finished:
+					break
+				case .failure:
+					self.statePublisher.send(.failure)
+				}
+			},receiveValue: { weather in
+				self.statePublisher.send(.complete(weather))
+			})
+			.store(in: &cancellables)
 	}
 }
