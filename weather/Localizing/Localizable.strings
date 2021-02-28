@@ -9,3 +9,8 @@
 "paris" = "Paris";
 "newYork" = "New York";
 "tokyo" = "Tokyo";
+
+//details
+
+"weather.details.feels.like %@" = "Feels like %@c";
+"weather.details.high.low %@ %@" = "H %@c L %@c";

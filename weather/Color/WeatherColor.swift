@@ -15,6 +15,7 @@ enum WeatherColor: String {
 	case snowDark
 	case thunderLight
 	case thunderDark
+	case labelBG
 
 	var uiColor: UIColor {
 		 UIColor(named: rawValue)!

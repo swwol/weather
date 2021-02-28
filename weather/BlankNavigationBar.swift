@@ -22,6 +22,7 @@ final class BlankNavigationBar: UINavigationBar {
 		standardAppearance = appearance
 		scrollEdgeAppearance = appearance
 		backgroundColor = appearance.backgroundColor
+		tintColor = .white
 	}
 }
 
