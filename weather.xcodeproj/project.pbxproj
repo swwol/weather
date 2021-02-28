@@ -26,7 +26,6 @@
 		0E47EDC025E980D400B46237 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBF25E980CF00B46237 /* Lato-Bold.ttf */; };
 		0E47EDC425E980D800B46237 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBD25E980B200B46237 /* Lato-Regular.ttf */; };
 		0E47EDC825E980DB00B46237 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */; };
-		0E47EDCE25E9A32800B46237 /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDCD25E9A32800B46237 /* CityDataSource.swift */; };
 		0E47EDD325E9A34F00B46237 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDD225E9A34F00B46237 /* CityTableViewCell.swift */; };
 		0E47EDD825E9B28300B46237 /* CityTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDD725E9B28300B46237 /* CityTableViewCellViewModel.swift */; };
 		0E47EDDE25E9B41100B46237 /* StringLocalizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EDDD25E9B41100B46237 /* StringLocalizing.swift */; };
@@ -48,6 +47,7 @@
 		0E47EE6625EC0FAA00B46237 /* Publisher+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE6525EC0FAA00B46237 /* Publisher+Tests.swift */; };
 		0E47EE6D25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE6C25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift */; };
 		0E47EE7625EC1D0300B46237 /* CityDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE7525EC1D0300B46237 /* CityDetailViewModelTests.swift */; };
+		0E5E368725EC5FD60009553D /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E368625EC5FD60009553D /* CityDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,6 @@
 		0E47EDBD25E980B200B46237 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		0E47EDBE25E980BD00B46237 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		0E47EDBF25E980CF00B46237 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
-		0E47EDCD25E9A32800B46237 /* CityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
 		0E47EDD225E9A34F00B46237 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		0E47EDD725E9B28300B46237 /* CityTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		0E47EDDD25E9B41100B46237 /* StringLocalizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLocalizing.swift; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		0E47EE6525EC0FAA00B46237 /* Publisher+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Tests.swift"; sourceTree = "<group>"; };
 		0E47EE6C25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 		0E47EE7525EC1D0300B46237 /* CityDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewModelTests.swift; sourceTree = "<group>"; };
+		0E5E368625EC5FD60009553D /* CityDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,7 +280,7 @@
 		0E47EDCC25E9A31500B46237 /* Datasource */ = {
 			isa = PBXGroup;
 			children = (
-				0E47EDCD25E9A32800B46237 /* CityDataSource.swift */,
+				0E5E368625EC5FD60009553D /* CityDataSource.swift */,
 			);
 			path = Datasource;
 			sourceTree = "<group>";
@@ -504,7 +504,6 @@
 				0E47EDDE25E9B41100B46237 /* StringLocalizing.swift in Sources */,
 				0E26621D25E8691300F70B3F /* UIViewController+Extension.swift in Sources */,
 				0E26620525E863D200F70B3F /* CitySelectionCoordinator.swift in Sources */,
-				0E47EDCE25E9A32800B46237 /* CityDataSource.swift in Sources */,
 				0E47EDF925E9C93C00B46237 /* GradientView.swift in Sources */,
 				0E2661C325E8521F00F70B3F /* AppDelegate.swift in Sources */,
 				0E47EDD325E9A34F00B46237 /* CityTableViewCell.swift in Sources */,
@@ -517,6 +516,7 @@
 				0E47EE1C25EA7C1800B46237 /* WeatherResponse.swift in Sources */,
 				0E47EE4A25EBEED900B46237 /* IntervalTimer.swift in Sources */,
 				0E2661F725E8615D00F70B3F /* CoordinatorFactory.swift in Sources */,
+				0E5E368725EC5FD60009553D /* CityDataSource.swift in Sources */,
 				0E47EDD825E9B28300B46237 /* CityTableViewCellViewModel.swift in Sources */,
 				0E47EDF125E9C8FF00B46237 /* WeatherColor.swift in Sources */,
 				0E47EE2525EAE81400B46237 /* CityDetailCoordinator.swift in Sources */,
