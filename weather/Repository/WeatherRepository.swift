@@ -25,7 +25,7 @@ final class WeatherRepository: WeatherRepositoryType {
 		components.host = API.host
 		components.path = API.path
 		components.queryItems = [
-			URLQueryItem(name: "id", value: city.id),
+			URLQueryItem(name: "id", value: city.identifier),
 			URLQueryItem(name: "appId", value: API.key),
 			URLQueryItem(name: "units", value: "metric")
 		]

@@ -9,16 +9,19 @@ extension Publisher {
 		return mockedSubscriber
 	}
 
-	func assertWillBeEqual(to expected: Output,
-						   message: String = "",
-						   file: StaticString = #filePath,
-						   line: UInt = #line) where Output: Equatable {
-
+	func assertWillBeEqual(
+		to expected: Output,
+		message: String = "",
+		file: StaticString = #filePath,
+		line: UInt = #line
+	) where Output: Equatable {
 		subscribe(TestSubscriber<Output, Failure>(expected: expected, message, file, line))
 	}
 
-	func expectEqual(to expected: Output,
-					 with expectation: XCTestExpectation) where Output: Equatable {
+	func expectEqual(
+		to expected: Output,
+		with expectation: XCTestExpectation
+	) where Output: Equatable {
 		subscribe(Subscribers.Sink(
 					receiveCompletion: { _ in },
 					receiveValue: {
@@ -29,9 +32,11 @@ extension Publisher {
 		)
 	}
 
-	func assertWillNotBeNil(message: String = "",
-							file: StaticString = #filePath,
-							line: UInt = #line) {
+	func assertWillNotBeNil(
+		message: String = "",
+		file: StaticString = #filePath,
+		line: UInt = #line
+	) {
 		subscribe(Subscribers.Sink<Output, Failure> { value in
 			XCTAssertNotNil(value, message, file: file, line: line)
 		})
@@ -75,11 +80,8 @@ private final class TestSubscriber<Input: Equatable, Failure: Error>: Subscriber
 	func receive(completion: Subscribers.Completion<Failure>) {}
 }
 
-import Combine
-
 extension Subscribers.Sink {
 	convenience init(_ receiveValue: @escaping (Input) -> Void) {
 		self.init(receiveCompletion: { _ in }, receiveValue: receiveValue)
 	}
 }
-

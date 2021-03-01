@@ -39,7 +39,9 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.reuseIdentifier) as? CityTableViewCell else {
+		guard let cell = tableView.dequeueReusableCell(
+			withIdentifier: CityTableViewCell.reuseIdentifier
+		) as? CityTableViewCell else {
 			fatalError("unable to dequeue CityTableViewCell")
 		}
 		let city = City.allCases[indexPath.section]
@@ -64,7 +66,7 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 		guard let viewModel = viewModels[city] else { return }
 		self.delegate?.didSelect(city: city, weather: viewModel.outputs.currentWeather, on: self)
 	}
-	
+
 	func updateVisibleCells() {
 		viewModels.values.forEach { viewModel in
 			viewModel.inputs.fetchWeather()

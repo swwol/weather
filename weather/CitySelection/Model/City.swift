@@ -11,7 +11,7 @@ enum City: String, CaseIterable {
 		rawValue
 	}
 
-	var id: String {
+	var identifier: String {
 		switch self {
 		case .london:
 			return "2643743"

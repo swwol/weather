@@ -19,7 +19,9 @@ protocol CityTableViewCellViewModelType {
 	var inputs: CityTableViewCellViewModelInputsType { get }
 }
 
-final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTableViewCellViewModelOutputsType, CityTableViewCellViewModelInputsType {
+final class CityTableViewCellViewModel: CityTableViewCellViewModelType,
+										CityTableViewCellViewModelOutputsType,
+										CityTableViewCellViewModelInputsType {
 
 	enum State: Equatable {
 		case loading
@@ -107,10 +109,9 @@ final class CityTableViewCellViewModel: CityTableViewCellViewModelType, CityTabl
 				case .failure:
 					self.statePublisher.send(.failure)
 				}
-			},receiveValue: { weather in
+			}, receiveValue: { weather in
 				self.statePublisher.send(.complete(weather))
 			})
 			.store(in: &cancellables)
 	}
 }
-

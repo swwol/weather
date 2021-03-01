@@ -8,8 +8,10 @@ final class AppCoordinator: NSObject, AppCoordinatorType {
 	private let citySelectionCoordinator: CitySelectionCoordinatorType
 	private let cityDetailCoordinator: CityDetailCoordinatorType
 	private var context: UINavigationController!
-	init(citySelectionCoordinator: CitySelectionCoordinatorType,
-		 cityDetailCoordinator: CityDetailCoordinatorType) {
+	init(
+		citySelectionCoordinator: CitySelectionCoordinatorType,
+		cityDetailCoordinator: CityDetailCoordinatorType
+	) {
 		self.citySelectionCoordinator = citySelectionCoordinator
 		self.cityDetailCoordinator = cityDetailCoordinator
 		super.init()

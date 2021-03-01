@@ -20,7 +20,9 @@ protocol CityDetailViewModelType {
 	var outputs: CityDetailViewModelOutputsType { get }
 }
 
-final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInputsType, CityDetailViewModelOutputsType {
+final class CityDetailViewModel: CityDetailViewModelType,
+								 CityDetailViewModelInputsType,
+								 CityDetailViewModelOutputsType {
 
 	enum State: Equatable {
 		case loading
@@ -44,11 +46,14 @@ final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInp
 	private var cancellables = Set<AnyCancellable>()
 	private let timer: IntervalTimerType
 
-	init(city: City,
-		 repository: WeatherRepositoryType,
-		 weather: WeatherResponse?,
-		 timer: IntervalTimerType = IntervalTimer(interval: 5),
-		 localizer: StringLocalizing = Localizer()) {
+	// swiftlint:disable:next function_body_length cyclomatic_complexity
+	init(
+		city: City,
+		repository: WeatherRepositoryType,
+		weather: WeatherResponse?,
+		timer: IntervalTimerType = IntervalTimer(interval: 5),
+		localizer: StringLocalizing = Localizer()
+	) {
 		self.timer = timer
 		self.repository = repository
 		self.city = city
@@ -58,8 +63,7 @@ final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInp
 
 		if let weather = weather {
 			statePublisher = CurrentValueSubject(.complete(weather))
-		}
-		else {
+		} else {
 			statePublisher = CurrentValueSubject(.loading)
 		}
 
@@ -150,7 +154,7 @@ final class CityDetailViewModel: CityDetailViewModelType, CityDetailViewModelInp
 				case .failure:
 					self.statePublisher.send(.failure)
 				}
-			},receiveValue: { weather in
+			}, receiveValue: { weather in
 				self.statePublisher.send(.complete(weather))
 			})
 			.store(in: &cancellables)

@@ -10,6 +10,7 @@ final class CitySelectionViewController: UIViewController {
 	private var cancellables = Set<AnyCancellable>()
 
 	var gradientView: GradientView {
+		// swiftlint:disable:next force_cast
 		self.view as! GradientView
 	}
 
@@ -52,4 +53,3 @@ final class CitySelectionViewController: UIViewController {
 			.store(in: &cancellables)
 	}
 }
-

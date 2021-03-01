@@ -62,6 +62,7 @@ struct WeatherResponse: Decodable, Equatable {
 	}
 
 	struct Weather: Decodable, Equatable {
+		// swiftlint:disable:next identifier_name
 		let id: Int
 		let main: String
 		let description: String
@@ -75,7 +76,7 @@ struct WeatherResponse: Decodable, Equatable {
 		let max: Double
 		let pressure: Int
 		let humidity: Int
-
+		// swiftlint:disable:next nesting
 		enum CodingKeys: String, CodingKey {
 			case temp
 			case feels = "feels_like"
@@ -98,7 +99,7 @@ struct WeatherResponse: Decodable, Equatable {
 	struct Volume: Decodable, Equatable {
 		let oneHour: Double?
 		let threeHour: Double?
-
+		// swiftlint:disable:next nesting
 		enum CodingKeys: String, CodingKey {
 			case oneHour = "1h"
 			case threeHour = "3h"

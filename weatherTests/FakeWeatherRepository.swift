@@ -7,7 +7,6 @@ final class FakeWeatherRepository: WeatherRepositoryType {
 	var getWeatherError: Error?
 	var getweatherResponse: WeatherResponse = .fake()
 
-
 	func getWeather(for city: City) -> AnyPublisher<WeatherResponse, Error> {
 		return Future<WeatherResponse, Error> { promise in
 			if let error = self.getWeatherError {

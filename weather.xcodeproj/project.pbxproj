@@ -13,7 +13,6 @@
 		0E2661CC25E8522000F70B3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2661CB25E8522000F70B3F /* Assets.xcassets */; };
 		0E2661CF25E8522000F70B3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2661CD25E8522000F70B3F /* LaunchScreen.storyboard */; };
 		0E2661DA25E8522100F70B3F /* CitySelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2661D925E8522100F70B3F /* CitySelectionViewModelTests.swift */; };
-		0E2661E525E8522100F70B3F /* weatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2661E425E8522100F70B3F /* weatherUITests.swift */; };
 		0E2661F725E8615D00F70B3F /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2661F625E8615D00F70B3F /* CoordinatorFactory.swift */; };
 		0E2661FF25E8624C00F70B3F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2661FE25E8624C00F70B3F /* AppCoordinator.swift */; };
 		0E26620525E863D200F70B3F /* CitySelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26620425E863D200F70B3F /* CitySelectionCoordinator.swift */; };
@@ -78,8 +77,6 @@
 		0E2661D925E8522100F70B3F /* CitySelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewModelTests.swift; sourceTree = "<group>"; };
 		0E2661DB25E8522100F70B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E2661E025E8522100F70B3F /* weatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E2661E425E8522100F70B3F /* weatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherUITests.swift; sourceTree = "<group>"; };
-		0E2661E625E8522100F70B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E2661F625E8615D00F70B3F /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		0E2661FE25E8624C00F70B3F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0E26620425E863D200F70B3F /* CitySelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionCoordinator.swift; sourceTree = "<group>"; };
@@ -149,7 +146,6 @@
 			children = (
 				0E2661C125E8521F00F70B3F /* weather */,
 				0E2661D825E8522100F70B3F /* weatherTests */,
-				0E2661E325E8522100F70B3F /* weatherUITests */,
 				0E2661C025E8521F00F70B3F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -201,15 +197,6 @@
 				0E47EE6525EC0FAA00B46237 /* Publisher+Tests.swift */,
 			);
 			path = weatherTests;
-			sourceTree = "<group>";
-		};
-		0E2661E325E8522100F70B3F /* weatherUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0E2661E425E8522100F70B3F /* weatherUITests.swift */,
-				0E2661E625E8522100F70B3F /* Info.plist */,
-			);
-			path = weatherUITests;
 			sourceTree = "<group>";
 		};
 		0E2661F525E8614900F70B3F /* Coordinator */ = {
@@ -373,6 +360,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E2661E925E8522100F70B3F /* Build configuration list for PBXNativeTarget "weather" */;
 			buildPhases = (
+				0E7A652C25ED972D0030968A /* SwiftLint */,
 				0E2661BB25E8521F00F70B3F /* Sources */,
 				0E2661BC25E8521F00F70B3F /* Frameworks */,
 				0E2661BD25E8521F00F70B3F /* Resources */,
@@ -496,6 +484,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E7A652C25ED972D0030968A /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0E2661BB25E8521F00F70B3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -547,7 +556,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E2661E525E8522100F70B3F /* weatherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

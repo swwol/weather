@@ -22,7 +22,9 @@ protocol CitySelectionViewModelType {
 	var delegate: CitySelectionViewModelDelegate? { get set }
 }
 
-final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionViewModelInputsType, CitySelectionViewModelOutputsType {
+final class CitySelectionViewModel: CitySelectionViewModelType,
+									CitySelectionViewModelInputsType,
+									CitySelectionViewModelOutputsType {
 	var inputs: CitySelectionViewModelInputsType { return self }
 	var outputs: CitySelectionViewModelOutputsType { return self }
 	let dataSource: AnyPublisher<CityDataSource, Never>
@@ -34,9 +36,11 @@ final class CitySelectionViewModel: CitySelectionViewModelType, CitySelectionVie
 
 	weak var delegate: CitySelectionViewModelDelegate?
 
-	init(repository: WeatherRepositoryType,
-		 timer: IntervalTimerType = IntervalTimer(interval: 5),
-		 localizer: StringLocalizing = Localizer()) {
+	init(
+		repository: WeatherRepositoryType,
+		timer: IntervalTimerType = IntervalTimer(interval: 5),
+		localizer: StringLocalizing = Localizer()
+	) {
 		cityDataSource = CityDataSource(repository: repository)
 		dataSource = Just(cityDataSource).eraseToAnyPublisher()
 		title = Just(localizer.localize("city.selection.title")).eraseToAnyPublisher()

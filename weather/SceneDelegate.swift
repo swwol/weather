@@ -6,7 +6,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	private let coordinatorFactory = CoordinatorFactory(repository: WeatherRepository())
 	private var appCoordinator: AppCoordinatorType!
 
-	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+	func scene(
+		_ scene: UIScene,
+		willConnectTo session: UISceneSession,
+		options connectionOptions: UIScene.ConnectionOptions
+	) {
 	guard let navigationController = window?.rootViewController as? UINavigationController
 	else { return }
 		appCoordinator = coordinatorFactory.makeApp()
