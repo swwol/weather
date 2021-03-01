@@ -4,7 +4,8 @@ import UIKit
 final class CitySelectionViewController: UIViewController {
 
 	@IBOutlet private weak var tableView: UITableView!
-
+	@IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
+	@IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
 	var viewModel: CitySelectionViewModelType!
 	private var cancellables = Set<AnyCancellable>()
 
@@ -15,6 +16,8 @@ final class CitySelectionViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.backgroundColor = .clear
+		leadingConstraint.constant = UIDevice.current.scaleFactor *  20
+		trailingConstraint.constant = UIDevice.current.scaleFactor * 20
 		tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
 		bind(viewModel.outputs)
 	}

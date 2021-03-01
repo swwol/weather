@@ -6,7 +6,7 @@ final class CityTableViewCell: UITableViewCell {
 	@IBOutlet weak var cityLabel: UILabel!
 	@IBOutlet private weak var tempLabel: UILabel!
 	@IBOutlet private weak var gradientView: GradientView!
-
+	@IBOutlet private weak var iconWidthConstraint: NSLayoutConstraint!
 	private var cancellables = Set<AnyCancellable>()
 
 	var viewModel: CityTableViewCellViewModelType! {
@@ -20,6 +20,10 @@ final class CityTableViewCell: UITableViewCell {
 		layer.cornerRadius = 7
 		clipsToBounds = true
 		icon.tintColor = .white
+		iconWidthConstraint.constant = 40 * UIDevice.current.scaleFactor
+		[cityLabel, tempLabel].forEach {
+			$0.font = $0.font.withSize($0.font.pointSize * UIDevice.current.scaleFactor)
+		}
 	}
 
 	private func bind(_ outputs: CityTableViewCellViewModelOutputsType) {

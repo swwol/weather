@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QS-nl-7tF">
-                                <rect key="frame" x="80.5" y="86" width="253" height="251"/>
+                                <rect key="frame" x="103.5" y="104" width="207" height="215"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WTt-6t-umj">
@@ -41,8 +41,8 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Egv-yb-VAj">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="1e3-ZF-flq"/>
                                                     <constraint firstAttribute="width" constant="40" id="OKj-AE-hxP"/>
+                                                    <constraint firstAttribute="width" secondItem="Egv-yb-VAj" secondAttribute="height" id="VwO-93-iXU"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byg-Pa-CbH">
@@ -96,27 +96,31 @@
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <constraints>
                             <constraint firstItem="WTt-6t-umj" firstAttribute="top" secondItem="HDy-iu-Rjb" secondAttribute="top" constant="60" id="1Md-7N-EaO"/>
-                            <constraint firstItem="0QS-nl-7tF" firstAttribute="top" secondItem="WTt-6t-umj" secondAttribute="top" constant="-18" id="3xl-59-5fn"/>
-                            <constraint firstItem="0QS-nl-7tF" firstAttribute="leading" secondItem="WTt-6t-umj" secondAttribute="leading" constant="-23" id="5pE-cG-jlX"/>
                             <constraint firstItem="kbF-3e-jo4" firstAttribute="centerX" secondItem="x36-u2-Dga" secondAttribute="centerX" id="F7j-EB-g31"/>
-                            <constraint firstItem="0QS-nl-7tF" firstAttribute="trailing" secondItem="WTt-6t-umj" secondAttribute="trailing" constant="23" id="FOg-Bz-UxP"/>
+                            <constraint firstItem="0QS-nl-7tF" firstAttribute="height" secondItem="WTt-6t-umj" secondAttribute="height" id="HcA-Qb-ob9"/>
+                            <constraint firstItem="0QS-nl-7tF" firstAttribute="centerX" secondItem="WTt-6t-umj" secondAttribute="centerX" id="O0g-tw-vSW"/>
                             <constraint firstItem="WTt-6t-umj" firstAttribute="width" secondItem="mhf-X7-ngR" secondAttribute="width" multiplier="0.5" id="RJC-uf-ArS"/>
                             <constraint firstItem="kbF-3e-jo4" firstAttribute="centerY" secondItem="x36-u2-Dga" secondAttribute="centerY" id="bRb-vC-0cD"/>
+                            <constraint firstItem="0QS-nl-7tF" firstAttribute="centerY" secondItem="WTt-6t-umj" secondAttribute="centerY" id="dc1-y9-T6o"/>
                             <constraint firstItem="WTt-6t-umj" firstAttribute="centerX" secondItem="mhf-X7-ngR" secondAttribute="centerX" id="f4g-pC-cPT"/>
                             <constraint firstItem="kbF-3e-jo4" firstAttribute="width" secondItem="x36-u2-Dga" secondAttribute="width" constant="30" id="gyJ-zR-IVL"/>
-                            <constraint firstItem="0QS-nl-7tF" firstAttribute="bottom" secondItem="WTt-6t-umj" secondAttribute="bottom" constant="18" id="jXV-4Z-1VK"/>
+                            <constraint firstItem="0QS-nl-7tF" firstAttribute="width" secondItem="WTt-6t-umj" secondAttribute="width" id="qLD-fL-aQK"/>
                             <constraint firstItem="kbF-3e-jo4" firstAttribute="height" secondItem="x36-u2-Dga" secondAttribute="height" id="qan-kK-rO5"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="borderHeightConstraint" destination="HcA-Qb-ob9" id="N7A-Fa-FhO"/>
                         <outlet property="borderView" destination="0QS-nl-7tF" id="hNR-2j-0za"/>
+                        <outlet property="borderWidthConstraint" destination="qLD-fL-aQK" id="UNa-fB-6Hi"/>
                         <outlet property="city" destination="wDS-pf-JNA" id="lhC-ps-6t6"/>
                         <outlet property="feels" destination="x36-u2-Dga" id="15A-ZG-EJk"/>
                         <outlet property="highLow" destination="TvR-jf-0DD" id="iso-Sa-G9c"/>
                         <outlet property="icon" destination="Egv-yb-VAj" id="6kE-ff-UO3"/>
+                        <outlet property="iconWidthConstraint" destination="OKj-AE-hxP" id="HUj-ex-YAS"/>
                         <outlet property="labelBG" destination="kbF-3e-jo4" id="CA0-Ys-Qfu"/>
+                        <outlet property="labelBGWidthContraint" destination="gyJ-zR-IVL" id="jt2-cm-Eaq"/>
                         <outlet property="stack" destination="WTt-6t-umj" id="Rfi-9p-xNN"/>
                         <outlet property="temp" destination="Byg-Pa-CbH" id="HFP-cZ-luc"/>
                         <outlet property="weatherDescription" destination="Lnw-lN-YWn" id="hVx-Gl-gOp"/>

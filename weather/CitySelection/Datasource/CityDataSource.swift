@@ -17,7 +17,7 @@ final class CityDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 	}
 
 	enum Constants {
-		static let cellSpacing: CGFloat = 10
+		static let cellSpacing: CGFloat = 10 * UIDevice.current.scaleFactor
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {

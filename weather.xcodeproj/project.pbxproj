@@ -48,6 +48,7 @@
 		0E47EE6D25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE6C25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift */; };
 		0E47EE7625EC1D0300B46237 /* CityDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47EE7525EC1D0300B46237 /* CityDetailViewModelTests.swift */; };
 		0E5E368725EC5FD60009553D /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5E368625EC5FD60009553D /* CityDataSource.swift */; };
+		0E7A652825ED90200030968A /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A652725ED90200030968A /* UIDevice+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		0E47EE6C25EC16AA00B46237 /* CityTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 		0E47EE7525EC1D0300B46237 /* CityDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewModelTests.swift; sourceTree = "<group>"; };
 		0E5E368625EC5FD60009553D /* CityDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
+		0E7A652725ED90200030968A /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				0E26621C25E8691300F70B3F /* UIViewController+Extension.swift */,
 				0E26622F25E8745000F70B3F /* UITableViewCell+Extension.swift */,
+				0E7A652725ED90200030968A /* UIDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E47EE0A25EA68D200B46237 /* WeatherRepository.swift in Sources */,
+				0E7A652825ED90200030968A /* UIDevice+Extension.swift in Sources */,
 				0E26622B25E86C1D00F70B3F /* CitySelectionViewModel.swift in Sources */,
 				0E26623025E8745000F70B3F /* UITableViewCell+Extension.swift in Sources */,
 				0E47EDDE25E9B41100B46237 /* StringLocalizing.swift in Sources */,

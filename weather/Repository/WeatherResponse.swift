@@ -8,6 +8,7 @@ struct WeatherResponse: Decodable, Equatable {
 	 case rain = "10d"
 	 case snow = "13d"
 	 case atmosphere = "50d"
+	 case atmosphereNight = "50n"
 	 case clearDay = "01d"
 	 case clearNight = "01n"
 	 case fewCloudsDay = "02d"
@@ -27,7 +28,7 @@ struct WeatherResponse: Decodable, Equatable {
 			 return "cloud.rain"
 		 case .snow:
 			 return "cloud.snow"
-		 case .atmosphere:
+		 case .atmosphere, .atmosphereNight:
 			 return "cloud.fog"
 		 case .clearDay:
 			 return "sun.max"

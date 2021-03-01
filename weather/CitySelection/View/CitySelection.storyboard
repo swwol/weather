@@ -56,8 +56,7 @@
                                                     <rect key="frame" x="20" y="19" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="Nn4-TY-JZ6"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="SYH-iH-kpd"/>
-                                                        <constraint firstAttribute="height" constant="40" id="pTr-hI-wkq"/>
+                                                        <constraint firstAttribute="width" secondItem="O0v-Gf-AB3" secondAttribute="height" multiplier="1:1" id="hQf-r6-1ij"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -80,6 +79,7 @@
                                             <outlet property="cityLabel" destination="EZh-2q-9c5" id="njX-bA-gVd"/>
                                             <outlet property="gradientView" destination="5oD-Oh-hjc" id="j7t-OP-uBP"/>
                                             <outlet property="icon" destination="O0v-Gf-AB3" id="ur9-W1-NXY"/>
+                                            <outlet property="iconWidthConstraint" destination="Nn4-TY-JZ6" id="1Nr-1q-YVx"/>
                                             <outlet property="tempLabel" destination="r6y-Lk-iEt" id="XWg-8A-eoW"/>
                                         </connections>
                                     </tableViewCell>
@@ -98,7 +98,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="leadingConstraint" destination="EIO-xx-atq" id="K0y-av-3E5"/>
                         <outlet property="tableView" destination="cQg-YF-1et" id="H6f-qD-tpj"/>
+                        <outlet property="trailingConstraint" destination="zeW-dg-v0n" id="4ab-kv-Ip9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ay6-fg-Nvz" userLabel="First Responder" sceneMemberID="firstResponder"/>

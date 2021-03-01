@@ -12,6 +12,10 @@ final class CityDetailViewController: UIViewController {
 	@IBOutlet private weak var stack: UIStackView!
 	@IBOutlet private weak var borderView: UIView!
 	@IBOutlet private weak var labelBG: UIView!
+	@IBOutlet private weak var iconWidthConstraint: NSLayoutConstraint!
+	@IBOutlet private weak var labelBGWidthContraint: NSLayoutConstraint!
+	@IBOutlet private weak var borderHeightConstraint: NSLayoutConstraint!
+	@IBOutlet private weak var borderWidthConstraint: NSLayoutConstraint!
 	var viewModel: CityDetailViewModelType!
 	private var cancellables = Set<AnyCancellable>()
 
@@ -21,8 +25,9 @@ final class CityDetailViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		stack.setCustomSpacing(1, after: city)
-		stack.setCustomSpacing(33, after: feels)
+		stack.spacing = 20 * UIDevice.current.scaleFactor
+		stack.setCustomSpacing(2 * UIDevice.current.scaleFactor, after: city)
+		stack.setCustomSpacing(33 * UIDevice.current.scaleFactor, after: feels)
 		borderView.backgroundColor = .clear
 		borderView.layer.cornerRadius = 7
 		borderView.layer.borderWidth = 2
@@ -31,6 +36,15 @@ final class CityDetailViewController: UIViewController {
 		labelBG.backgroundColor = WeatherColor.labelBG.uiColor
 		labelBG.layer.cornerRadius = 15
 		view.sendSubviewToBack(labelBG)
+
+		[temp, city, weatherDescription, feels, highLow].forEach {
+			$0.font = $0.font.withSize($0.font.pointSize * UIDevice.current.scaleFactor)
+		}
+
+		iconWidthConstraint.constant = 40 * UIDevice.current.scaleFactor
+		labelBGWidthContraint.constant = 30 * UIDevice.current.scaleFactor
+		borderHeightConstraint.constant = 46 * UIDevice.current.scaleFactor
+		borderWidthConstraint.constant = 26 * UIDevice.current.scaleFactor
 
 		bind(viewModel.outputs)
 	}
@@ -71,4 +85,3 @@ final class CityDetailViewController: UIViewController {
 			.store(in: &cancellables)
 	}
 }
-
